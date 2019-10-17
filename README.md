@@ -1,10 +1,10 @@
-<h1>Project 4: Data Lake</h1>
+<h1>Project 5: Data Pipelines with Airflow</h1>
 
 
 <h2>Project Discription</h2>
 
 <p>
-In this project, a music streaming startup, Sparkify, want to move their processes and data from data warehouse onto data lake. They require a data engineer to build an ETL pipeline that extracts their data from S3, processes them using Spark, and loads the data back into S3 as a set of dimensional tables.
+In this project, a music streaming startup, Sparkify, has decided that it is time to introduce more automation and monitoring to their data warehouse ETL pipelines and come to the conclusion that the best tool to achieve this is Apache Airflow. They require a data engineer to create high grade data pipelines that are dynamic and built from reusable tasks, can be monitored, and allow easy backfills. They have also noted that the data quality plays a big part when analyses are executed on top the data warehouse and want to run tests against their datasets after the ETL steps have been executed to catch any discrepancies in the datasets.
 
 There are two datasets, song data and log data, in the S3. The song dataset continue metadata about a song and the artist of that song. The log dataset consists of log files based on the songs in the song dataset.
 </p>
@@ -29,23 +29,23 @@ Fact Table:</p>
 </ul>
 
 <p>
-The figure below shows the schema.
+The figures below shows the schema and the DAG used to build the pipeline.
 </p>
 
 ![Tux, the Linux mascot](schema.png)
+![Tux, the Linux mascot](dag.png)
 
 <h2>Project Components</h2>
 
 <p>
-The project consists of two files:
+The project consists of one dag and four operators:
 
-The AWS Credential, dwh.cfg, include the required information used to connect the project to the AWS.
-
-Python script in etl.py. incloude the ETL pipeline process from loading the data from S3, process it and create the analytics tables schema, then load the analytics tables to S3 bucket.
+The dag will manage the pipeline tasks and the operators will be used for staging the datasets to redshift, loading the fact and dimension tables, and perform data quality check on the created tables.
 </p>
 
 <h2>Running the Project</h2>
 
 <p>
-To run the project, first the cridintioal info should be added to dwh.cfg then in the script file, etl.py, the output distination S3 bucket should be assign to the data_output variable in main. When everything ready, run the etl.py script and the process wll be done automatically.
+The project assume that you have a running Airflow instant and Redshift cluster. Make sure you add the redshift and IAM cridentioal to Airflow.
+In redshift, create the tables provided in create_tables.sql file before running the dag. Next, run the dag in Airflow.
 </p>
