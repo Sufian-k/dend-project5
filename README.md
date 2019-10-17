@@ -1,7 +1,7 @@
 <h1>Project 5: Data Pipelines with Airflow</h1>
 
 
-<h2>Project Discription</h2>
+<h2>Project Description</h2>
 
 <p>
 In this project, a music streaming startup, Sparkify, has decided that it is time to introduce more automation and monitoring to their data warehouse ETL pipelines and come to the conclusion that the best tool to achieve this is Apache Airflow. They require a data engineer to create high grade data pipelines that are dynamic and built from reusable tasks, can be monitored, and allow easy backfills. They have also noted that the data quality plays a big part when analyses are executed on top the data warehouse and want to run tests against their datasets after the ETL steps have been executed to catch any discrepancies in the datasets.
@@ -46,6 +46,6 @@ The dag will manage the pipeline tasks and the operators will be used for stagin
 <h2>Running the Project</h2>
 
 <p>
-The project assume that you have a running Airflow instant and Redshift cluster. Make sure you add the redshift and IAM cridentioal to Airflow.
+The project assume that you have a running Airflow instant and Redshift cluster. Make sure you add the redshift and IAM credential to Airflow.
 In redshift, create the tables provided in create_tables.sql file before running the dag. Next, run the dag in Airflow.
 </p>
